@@ -1,0 +1,22 @@
+        queue.async {
+            print("work 2 - wait")
+            semaphore.wait()
+            sleep(2)
+            semaphore.signal()
+            print("work 2 - done")
+        }
+        queue.async {
+            print("work 3 - wait")
+            semaphore.wait()
+            sleep(2)
+            semaphore.signal()
+            print("work 3 - done")
+        }
+        
+    }
+    
+    private func createWork(_ text: String) {
+        sleep(1)
+        print("work " + text)
+    }
+}
